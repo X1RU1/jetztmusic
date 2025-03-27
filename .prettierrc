@@ -4,5 +4,6 @@
   "useTabs": false,
   "singleQuote": false,
   "trailingComma": "none",
-  "semi": false
+  "semi": false,
+  "endOfLine": "lf"
 }

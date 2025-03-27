@@ -19,16 +19,19 @@ export default [
     },
     rules: {
       "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off",
       "import/no-commonjs": "off",
       "import/no-dynamic-require": "off",
       "import/no-unresolved": "off",
-      "prettier/prettier": "error"
+      "prettier/prettier": "error",
+      "@typescript-eslint/no-explicit-any": "off"
     }
   },
   {
     files: ["**/*.js"],
     rules: {
-      "@typescript-eslint/no-var-requires": "off"
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off"
     }
   }
 ]
