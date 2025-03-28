@@ -1,7 +1,13 @@
-import React from "react"
+import React, { memo } from "react"
+import type { ReactNode } from "react"
 
-const Discover = () => {
-  return <div>discover</div>
+interface IProps {
+  children?: ReactNode
 }
 
-export default Discover
+// FunctionComponent -> <IProps> generics
+const Discover: React.FunctionComponent<IProps> = () => {
+  return <div>Discover</div>
+}
+
+export default memo(Discover) // Lets you skip re-rendering a component when its props are unchanged.
