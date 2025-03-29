@@ -1,8 +1,8 @@
 import React, { Suspense } from "react"
 import { Link, useRoutes } from "react-router-dom"
-import { shallowEqual } from "react-redux"
 import routes from "./router"
-import { useAppSelector } from "./store"
+import { shallowEqualApp, useAppDispatch, useAppSelector } from "./store"
+import { changeMessageAction } from "./store/modules/counter"
 
 function App() {
   const { count, message } = useAppSelector(
@@ -10,8 +10,13 @@ function App() {
       count: state.counter.count,
       message: state.counter.message
     }),
-    shallowEqual
+    shallowEqualApp
   )
+
+  const dispatch = useAppDispatch()
+  function handleChangeMessage() {
+    dispatch(changeMessageAction("Hello Message"))
+  }
 
   return (
     <div className="App">
@@ -23,6 +28,7 @@ function App() {
       </div>
       <h2>Current Counter: {count}</h2>
       <h2>Current Message: {message}</h2>
+      <button onClick={handleChangeMessage}>Change Message</button>
       <Suspense fallback="">
         <div className="main">{useRoutes(routes)}</div>
       </Suspense>
